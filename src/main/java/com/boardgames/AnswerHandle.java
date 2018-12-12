@@ -5,6 +5,8 @@ import org.kie.api.definition.type.FactType;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.rule.FactHandle;
 
+import java.awt.event.ItemEvent;
+
 public class AnswerHandle {
   private Object answer;
   private FactHandle factHandle;
@@ -22,8 +24,8 @@ public class AnswerHandle {
     factHandle = null;
   }
 
-  public void toggleAnswer(){
-    if(factHandle == null){
+  public void toggleAnswer(ItemEvent itemEvent) {
+    if(itemEvent.getStateChange() == ItemEvent.SELECTED){
       factHandle = session.insert(answer);
     }
     else {

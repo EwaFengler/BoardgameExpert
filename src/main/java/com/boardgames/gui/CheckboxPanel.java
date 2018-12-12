@@ -12,9 +12,9 @@ public class CheckboxPanel {
 
   public CheckboxPanel(AnswerHandle answerHandle1, AnswerHandle answerHandle2) {
     firstAnswerCheckbox.setText(answerHandle1.getAnswerString());
-    firstAnswerCheckbox.addActionListener(e -> answerHandle1.toggleAnswer());
+    firstAnswerCheckbox.addItemListener(answerHandle1::toggleAnswer);
     secondAnswerCheckbox.setText(answerHandle2.getAnswerString());
-    secondAnswerCheckbox.addActionListener(e -> answerHandle2.toggleAnswer());
+    secondAnswerCheckbox.addItemListener(answerHandle2::toggleAnswer);
   }
 
   {

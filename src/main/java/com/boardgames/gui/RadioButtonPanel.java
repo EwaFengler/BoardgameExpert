@@ -12,9 +12,9 @@ public class RadioButtonPanel {
 
   public RadioButtonPanel(AnswerHandle answerHandle1, AnswerHandle answerHandle2) {
     firstAnswerRadioButton.setText(answerHandle1.getAnswerString());
-    firstAnswerRadioButton.addActionListener(e -> answerHandle1.toggleAnswer());
+    firstAnswerRadioButton.addItemListener(answerHandle1::toggleAnswer);
     secondAnswerRadioButton.setText(answerHandle2.getAnswerString());
-    secondAnswerRadioButton.addActionListener(e -> answerHandle2.toggleAnswer());
+    secondAnswerRadioButton.addItemListener(answerHandle2::toggleAnswer);
   }
 
   {
