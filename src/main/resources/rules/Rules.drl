@@ -23,17 +23,6 @@ rule "nerd"
         boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
 end
 
-rule "not nerd"
-    when
-        boardgameExpert: BoardgameExpert()
-        Answer(question == "Are you a huge nerd?", answer == "No")
-    then
-        String questionString = "Do you thing everyone should just get along?";
-        Answer firstAnswer = new Answer(questionString, "Yes");
-        Answer secondAnswer = new Answer(questionString, "No");
-        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
-end
-
 rule "nerd + not dozen of hours"
     when
         boardgameExpert: BoardgameExpert()
@@ -46,11 +35,1123 @@ rule "nerd + not dozen of hours"
         boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
 end
 
+rule "nerd + not dozen of hours + really like spending money"
+when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "Yes")
+        Answer(question == "Do you want to spend dozens of hours preparing to play?", answer == "No")
+        Answer(question == "Do you really like spending money?", answer == "Yes")
+    then
+        boardgameExpert.addResult("Magic");
+        boardgameExpert.showResultScreen();
+end
+
+rule "nerd + not dozen of hours + not really like spending money"
+when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "Yes")
+        Answer(question == "Do you want to spend dozens of hours preparing to play?", answer == "No")
+        Answer(question == "Do you really like spending money?", answer == "No")
+    then
+        String questionString = "Does the name Boomer give you wet dreams?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "nerd + not dozen of hours + not really like spending money"
+when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "Yes")
+        Answer(question == "Do you want to spend dozens of hours preparing to play?", answer == "No")
+        Answer(question == "Do you really like spending money?", answer == "No")
+    then
+        String questionString = "Does the name Boomer give you wet dreams?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "nerd + not dozen of hours + not really like spending money + boomer"
+when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "Yes")
+        Answer(question == "Do you want to spend dozens of hours preparing to play?", answer == "No")
+        Answer(question == "Do you really like spending money?", answer == "No")
+        Answer(question == "Does the name Boomer give you wet dreams?" == "Yes")
+    then
+        boardgameExpert.addResult("Battlestar Galactica");
+        boardgameExpert.showResultScreen();
+end
+
+rule "nerd + not dozen of hours + not really like spending money + not boomer"
+when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "Yes")
+        Answer(question == "Do you want to spend dozens of hours preparing to play?", answer == "No")
+        Answer(question == "Do you really like spending money?", answer == "No")
+        Answer(question == "Does the name Boomer give you wet dreams?" == "No")
+    then
+        boardgameExpert.addResult("Cosmic Encounter");
+        boardgameExpert.showResultScreen();
+end
+
+
+
 rule "nerd + dozen of hours"
     when
         boardgameExpert: BoardgameExpert()
         Answer(question == "Are you a huge nerd?", answer == "Yes")
         Answer(question == "Do you want to spend dozens of hours preparing to play?", answer == "Yes")
     then
+        boardgameExpert.addResult("Warhammer");
+        boardgameExpert.showResultScreen();
+end
 
+rule "not nerd"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+    then
+        String questionString = "Do you thing everyone should just get along?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + everyone get along"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "Yes")
+    then
+        String questionString = "Do you secretly wish you were a dick? (a P.I)";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + everyone get along + secretly wish"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "Yes")
+        Answer(question == "Do you secretly wish you were a dick? (a P.I)", answer == "Yes")
+    then
+        boardgameExpert.addResult("Arkham Horror");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + everyone get along + not secretly wish"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "Yes)
+        Answer(question == "Do you secretly wish you were a dick? (a P.I)", answer == "No")
+    then
+        String questionString = "Do you have a Monty Python Fetish?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + everyone get along + not secretly wish + monty python"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "Yes)
+        Answer(question == "Do you secretly wish you were a dick? (a P.I)", answer == "No")
+        Answer(question == "Do you have a Monty Python Fetish?", answer == "Yes")
+    then
+        boardgameExpert.addResult("Shadows Over Camelot");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + everyone get along + not secretly wish + not monty python"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "Yes)
+        Answer(question == "Do you secretly wish you were a dick? (a P.I)", answer == "No")
+        Answer(question == "Do you have a Monty Python Fetish?", answer == "No")
+    then
+        String questionString = "Zombies?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + everyone get along + not secretly wish + not monty python + zombies"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "Yes)
+        Answer(question == "Do you secretly wish you were a dick? (a P.I)", answer == "No")
+        Answer(question == "Do you have a Monty Python Fetish?", answer == "No")
+        Answer(question == "Zombies?", answer == "Yes")
+    then
+        boardgameExpert.addResult("Last Night on Earth");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + everyone get along + not secretly wish + not monty python + not zombies"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "Yes)
+        Answer(question == "Do you secretly wish you were a dick? (a P.I)", answer == "No")
+        Answer(question == "Do you have a Monty Python Fetish?", answer == "No")
+        Answer(question == "Zombies?", answer == "No")
+    then
+        String questionString = "Would you rather fight monsters or viruses?";
+        Answer firstAnswer = new Answer(questionString, "Virus");
+        Answer secondAnswer = new Answer(questionString, "Monster");
+        boardgameExpert.showMultipleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + everyone get along + not secretly wish + not monty python + not zombies + virus"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "Yes)
+        Answer(question == "Do you secretly wish you were a dick? (a P.I)", answer == "No")
+        Answer(question == "Do you have a Monty Python Fetish?", answer == "No")
+        Answer(question == "Zombies?", answer == "No")
+        Answer(question == "Would you rather fight monsters or viruses?", answer == "Virus")
+    then
+        boardgameExpert.addResult("Pandemic");
+        boardgameExpert.showResultScreen();
+end
+
+
+rule "not nerd + everyone get along + not secretly wish + not monty python + not zombies + monster"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "Yes)
+        Answer(question == "Do you secretly wish you were a dick? (a P.I)", answer == "No")
+        Answer(question == "Do you have a Monty Python Fetish?", answer == "No")
+        Answer(question == "Zombies?", answer == "No")
+        Answer(question == "Would you rather fight monsters or viruses?", answer == "Monster")
+    then
+        boardgameExpert.addResult("Dungeon Run");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+    then
+        String questionString = "Do you like to gamble?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + gamble"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "Yes")
+    then
+        boardgameExpert.addResult("Rummoli");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+    then
+        String questionString = "Are you over 50 years old?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + 50 years old"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "Yes")
+    then
+        String questionString = "More than two of you?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + 50 years old + more than to of you"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "Yes")
+        Answer(question == "More than two of you?", answer == "Yes")
+    then
+        boardgameExpert.addResult("Cribbage");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + 50 years old + no more than to of you"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "Yes")
+        Answer(question == "More than two of you?", answer == "No")
+    then
+        String questionString = "Are you in Mensa?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + 50 years old + no more than to of you + mensa"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "Yes")
+        Answer(question == "More than two of you?", answer == "No")
+        Answer(question == "Are you in Mensa?", answer == "Yes")
+    then
+        String questionString = "Chess too cliché?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + 50 years old + no more than to of you + mensa + cliche"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "Yes")
+        Answer(question == "More than two of you?", answer == "No")
+        Answer(question == "Are you in Mensa?", answer == "Yes")
+        Answer(question == "Chess too cliché?", answer == "Yes")
+    then
+        boardgameExpert.addResult("Go");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + 50 years old + no more than to of you + mensa + not cliche"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "Yes")
+        Answer(question == "More than two of you?", answer == "No")
+        Answer(question == "Are you in Mensa?", answer == "Yes")
+        Answer(question == "Chess too cliché?", answer == "No")
+    then
+        boardgameExpert.addResult("Chess");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + 50 years old + no more than to of you + not mensa"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "Yes")
+        Answer(question == "More than two of you?", answer == "No")
+        Answer(question == "Are you in Mensa?", answer == "No")
+    then
+        boardgameExpert.addResult("Backgammon");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+    then
+        String questionString = "Party Game?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + party game"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "Yes")
+    then
+        String questionString = "Looking to get laid?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + party game + get laid"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "Yes")
+        Answer(question == "Looking to get laid?", answer == "Yes")
+    then
+        boardgameExpert.addResult("Twister");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + party game + not get laid"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "Yes")
+        Answer(question == "Looking to get laid?", answer == "No")
+    then
+        String questionString = "Want to embarrass your friends?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + party game + not get laid + embarrass"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "Yes")
+        Answer(question == "Looking to get laid?", answer == "No")
+        Answer(question == "Want to embarrass your friends?", answer == "Yes")
+    then
+        String questionString = "Do you want to be a thug or an artist?";
+        Answer firstAnswer = new Answer(questionString, "Thug");
+        Answer secondAnswer = new Answer(questionString, "Artist");
+        boardgameExpert.showMultipleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + party game + not get laid + embarrass + thug"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "Yes")
+        Answer(question == "Looking to get laid?", answer == "No")
+        Answer(question == "Want to embarrass your friends?", answer == "Yes")
+        Answer(question == "Do you want to be a thug or an artist?", answer == "Thug")
+    then
+        boardgameExpert.addResult("Ca$h'N'Gun$");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + party game + not get laid + embarrass + artist"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "Yes")
+        Answer(question == "Looking to get laid?", answer == "No")
+        Answer(question == "Want to embarrass your friends?", answer == "Yes")
+        Answer(question == "Do you want to be a thug or an artist?", answer == "Artist")
+    then
+        boardgameExpert.addResult("Cranium");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + party game + not get laid + not embarrass"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "Yes")
+        Answer(question == "Looking to get laid?", answer == "No")
+        Answer(question == "Want to embarrass your friends?", answer == "No")
+    then
+        String questionString = "Are you a creative liar?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + party game + not get laid + not embarrass + liar"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "Yes")
+        Answer(question == "Looking to get laid?", answer == "No")
+        Answer(question == "Want to embarrass your friends?", answer == "No")
+        Answer(question == "Are you a creative liar?", answer == "Yes")
+    then
+        String questionString = "Words or trivia?";
+        Answer firstAnswer = new Answer(questionString, "Words");
+        Answer secondAnswer = new Answer(questionString, "Trivia");
+        boardgameExpert.showMultipleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + party game + not get laid + not embarrass + liar + words"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "Yes")
+        Answer(question == "Looking to get laid?", answer == "No")
+        Answer(question == "Want to embarrass your friends?", answer == "No")
+        Answer(question == "Are you a creative liar?", answer == "Yes")
+        Answer(question == "Words or trivia?", answer == "Words")
+    then
+        boardgameExpert.addResult("Beyond Balderdash");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + party game + not get laid + not embarrass + liar + trivia"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "Yes")
+        Answer(question == "Looking to get laid?", answer == "No")
+        Answer(question == "Want to embarrass your friends?", answer == "No")
+        Answer(question == "Are you a creative liar?", answer == "Yes")
+        Answer(question == "Words or trivia?", answer == "Trivia")
+    then
+        boardgameExpert.addResult("Wits and Wagers");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + party game + not get laid + not embarrass + not liar"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "Yes")
+        Answer(question == "Looking to get laid?", answer == "No")
+        Answer(question == "Want to embarrass your friends?", answer == "No")
+        Answer(question == "Are you a creative liar?", answer == "No")
+    then
+        String questionString = "Good with your hands?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + party game + not get laid + not embarrass + not liar + good hands"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "Yes")
+        Answer(question == "Looking to get laid?", answer == "No")
+        Answer(question == "Want to embarrass your friends?", answer == "No")
+        Answer(question == "Are you a creative liar?", answer == "No")
+        Answer(question == "Good with your hands?", answer == "Yes")
+    then
+        boardgameExpert.addResult("Jenga (DK Edition)");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + party game + not get laid + not embarrass + not liar + not good hands"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "Yes")
+        Answer(question == "Looking to get laid?", answer == "No")
+        Answer(question == "Want to embarrass your friends?", answer == "No")
+        Answer(question == "Are you a creative liar?", answer == "No")
+        Answer(question == "Good with your hands?", answer == "No")
+    then
+        boardgameExpert.addResult("Taboos");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+    then
+        String questionString = "Are you a know it all?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + know all"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "Yes")
+    then
+        boardgameExpert.addResult("Trivial Persuit");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+    then
+        String questionString = "Get straight A's?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + straight a"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "Yes")
+    then
+        boardgameExpert.addResult("Scrabble");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+    then
+        String questionString = "Do you have a train fetish?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + train"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "Yes")
+    then
+        String questionString = "Do you enjoy economics?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + train + economics"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "Yes")
+        Answer(question == "Do you enjoy economics?", answer == "Yes")
+    then
+        boardgameExpert.addResult("Steam");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + train + not economics"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "Yes")
+        Answer(question == "Do you enjoy economics?", answer == "No")
+    then
+        boardgameExpert.addResult("Ticket to Ride");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+    then
+        String questionString = "Simple Rules?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + simple rules"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "Yes")
+    then
+        String questionString = "Words or tiles?";
+        Answer firstAnswer = new Answer(questionString, "Tiles");
+        Answer secondAnswer = new Answer(questionString, "Words");
+        boardgameExpert.showMultipleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + simple rules + tiles"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "Yes")
+        Answer(question == "Words or tiles?", answer == "Tiles")
+    then
+        boardgameExpert.addResult("Qwirkle");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + simple rules + words"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "Yes")
+        Answer(question == "Words or tiles?", answer == "Words")
+    then
+        boardgameExpert.addResult("Scattergories");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+    then
+        String questionString = "Constant hard choices?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules + hard choices"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+        Answer(question == "Constant hard choices?", answer == "Yes")
+    then
+        String questionString = "Farming fetish?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules + hard choices + farming"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+        Answer(question == "Constant hard choices?", answer == "Yes")
+        Answer(question == "Farming fetish?", answer == "Yes")
+    then
+        boardgameExpert.addResult("Agricola");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules + hard choices + not farming"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+        Answer(question == "Constant hard choices?", answer == "Yes")
+        Answer(question == "Farming fetish?", answer == "No")
+    then
+        String questionString = "Do you mind having to buy two games?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules + hard choices + not farming + against two games"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+        Answer(question == "Constant hard choices?", answer == "Yes")
+        Answer(question == "Farming fetish?", answer == "No")
+        Answer(question == "Do you mind having to buy two games?", answer == "Yes")
+    then
+        String questionString = "Are all players serious board game geeks?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules + hard choices + not farming + against two games + geeks"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+        Answer(question == "Constant hard choices?", answer == "Yes")
+        Answer(question == "Farming fetish?", answer == "No")
+        Answer(question == "Do you mind having to buy two games?", answer == "Yes")
+        Answer(question == "Are all players serious board game geeks?", answer == "Yes")
+    then
+        boardgameExpert.addResult("Puerto Rico");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules + hard choices + not farming + against two games + not geeks"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+        Answer(question == "Constant hard choices?", answer == "Yes")
+        Answer(question == "Farming fetish?", answer == "No")
+        Answer(question == "Do you mind having to buy two games?", answer == "Yes")
+        Answer(question == "Are all players serious board game geeks?", answer == "No")
+    then
+        boardgameExpert.addResult("Domaine");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules + hard choices + not farming + not against two games"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+        Answer(question == "Constant hard choices?", answer == "Yes")
+        Answer(question == "Farming fetish?", answer == "No")
+        Answer(question == "Do you mind having to buy two games?", answer == "No")
+    then
+        boardgameExpert.addResult("Cities and Knights");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules + not hard choices"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+        Answer(question == "Constant hard choices?", answer == "No")
+    then
+        String questionString = "Card/deck based game?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules + not hard choices + card-deck"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+        Answer(question == "Constant hard choices?", answer == "No")
+        Answer(question == "Card/deck based game?", answer == "Yes")
+    then
+        String questionString = "Complexity?";
+        Answer firstAnswer = new Answer(questionString, "More");
+        Answer secondAnswer = new Answer(questionString, "Less");
+        boardgameExpert.showMultipleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules + not hard choices + card-deck + more complexity"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+        Answer(question == "Constant hard choices?", answer == "No")
+        Answer(question == "Card/deck based game?", answer == "Yes")
+        Answer(question == "Complexity?", answer == "More")
+    then
+        boardgameExpert.addResult("7 Wonders");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules + not hard choices + card-deck + less complexity"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+        Answer(question == "Constant hard choices?", answer == "No")
+        Answer(question == "Card/deck based game?", answer == "Yes")
+        Answer(question == "Complexity?", answer == "Less")
+    then
+        boardgameExpert.addResult("Dominion");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules + not hard choices + not card-deck"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+        Answer(question == "Constant hard choices?", answer == "No")
+        Answer(question == "Card/deck based game?", answer == "No")
+    then
+        String questionString = "Do you like to plan your strategy before your turn?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules + not hard choices + not card-deck + strategy"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+        Answer(question == "Constant hard choices?", answer == "No")
+        Answer(question == "Card/deck based game?", answer == "No")
+        Answer(question == "Do you like to plan your strategy before your turn?", answer == "Yes")
+    then
+        boardgameExpert.addResult("Settlers of Catan");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules + not hard choices + not card-deck + no strategy"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+        Answer(question == "Constant hard choices?", answer == "No")
+        Answer(question == "Card/deck based game?", answer == "No")
+        Answer(question == "Do you like to plan your strategy before your turn?", answer == "No")
+    then
+        String questionString = "Defined turns or no down-time?";
+        Answer firstAnswer = new Answer(questionString, "No D.T");
+        Answer secondAnswer = new Answer(questionString, "Turns");
+        boardgameExpert.showMultipleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules + not hard choices + not card-deck + no strategy + no d.t"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+        Answer(question == "Constant hard choices?", answer == "No")
+        Answer(question == "Card/deck based game?", answer == "No")
+        Answer(question == "Do you like to plan your strategy before your turn?", answer == "No")
+        Answer(question == "Defined turns or no down-time?", answer == "No D.T")
+    then
+        boardgameExpert.addResult("Pillars of the Earth");
+        boardgameExpert.showResultScreen();
+end
+
+rule "not nerd + not everyone get along + not gamble + not 50 years old + no party game + not know all + not straight a + no train + not simple rules + not hard choices + not card-deck + no strategy + turns"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+        Answer(question == "Do you thing everyone should just get along?", answer == "No")
+        Answer(question == "Do you like to gamble?", answer == "No")
+        Answer(question == "Are you over 50 years old?", answer == "No")
+        Answer(question == "Party Game?", answer == "No")
+        Answer(question == "Are you a know it all?", answer == "No")
+        Answer(question == "Get straight A's?", answer == "No")
+        Answer(question == "Do you have a train fetish?", answer == "No")
+        Answer(question == "Simple Rules?", answer == "No")
+        Answer(question == "Constant hard choices?", answer == "No")
+        Answer(question == "Card/deck based game?", answer == "No")
+        Answer(question == "Do you like to plan your strategy before your turn?", answer == "No")
+        Answer(question == "Defined turns or no down-time?", answer == "Turns")
+    then
+        boardgameExpert.addResult("Carcassonne");
+        boardgameExpert.showResultScreen();
 end
