@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.boardgames.gui.BoardgameExpertGUI">
+  <grid id="27dc6" binding="outerPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="249" y="89" width="534" height="363"/>
+    </constraints>
+    <properties>
+      <maximumSize width="480" height="250"/>
+      <minimumSize width="480" height="250"/>
+      <preferredSize width="480" height="250"/>
+      <verifyInputWhenFocusTarget value="false"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="1abee" binding="mainPanel" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="1">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <maximumSize width="480" height="250"/>
+          <minimumSize width="480" height="250"/>
+          <preferredSize width="480" height="250"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="eee92" binding="labelPanel" layout-manager="FlowLayout" hgap="0" vgap="30" flow-align="0">
+            <constraints/>
+            <properties>
+              <maximumSize width="-1" height="-1"/>
+              <minimumSize width="450" height="-1"/>
+              <preferredSize width="450" height="77"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="49ca6" class="javax.swing.JLabel" binding="topLabel">
+                <constraints/>
+                <properties>
+                  <horizontalAlignment value="2"/>
+                  <horizontalTextPosition value="2"/>
+                  <text value="question"/>
+                  <verticalAlignment value="0"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="2d8f7" binding="contentPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints/>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="e900f" binding="buttonPanel" layout-manager="FlowLayout" hgap="0" vgap="20" flow-align="2">
+            <constraints/>
+            <properties>
+              <maximumSize width="-1" height="-1"/>
+              <minimumSize width="430" height="-1"/>
+              <preferredSize width="430" height="70"/>
+            </properties>
+            <border type="none">
+              <title-color color="-4473925"/>
+            </border>
+            <children>
+              <component id="6d64b" class="javax.swing.JButton" binding="bottomButton">
+                <constraints/>
+                <properties>
+                  <text value="Next"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="answerGroup">
+      <member id="9493a"/>
+      <member id="aa5a1"/>
+    </group>
+  </buttonGroups>
+</form>

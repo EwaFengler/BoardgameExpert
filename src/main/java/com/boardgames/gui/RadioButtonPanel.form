@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.boardgames.gui.RadioButtonPanel">
+  <grid id="27dc6" binding="radioButtonGroup" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="0">
+    <constraints>
+      <xy x="20" y="20" width="642" height="400"/>
+    </constraints>
+    <properties>
+      <maximumSize width="-1" height="-1"/>
+      <minimumSize width="430" height="-1"/>
+      <preferredSize width="430" height="100"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="34f5b" class="javax.swing.JRadioButton" binding="firstAnswerRadioButton">
+        <constraints/>
+        <properties>
+          <horizontalAlignment value="2"/>
+          <horizontalTextPosition value="11"/>
+          <label value=""/>
+          <margin top="5" left="2" bottom="5" right="200"/>
+          <selected value="false"/>
+        </properties>
+      </component>
+      <component id="10e8" class="javax.swing.JRadioButton" binding="secondAnswerRadioButton">
+        <constraints/>
+        <properties>
+          <label value=""/>
+          <margin top="5" left="2" bottom="5" right="200"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="radioButtonGroup">
+      <member id="10e8"/>
+      <member id="34f5b"/>
+    </group>
+  </buttonGroups>
+</form>

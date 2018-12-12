@@ -1,0 +1,7 @@
+package com.boardgames
+//dialect  "mvel"
+
+declare Answer
+    question : String
+    answer : String
+end

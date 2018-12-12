@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.boardgames.gui.CheckboxPanel">
+  <grid id="27dc6" binding="checkboxButtonGroup" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties>
+      <maximumSize width="-1" height="-1"/>
+      <minimumSize width="430" height="-1"/>
+      <preferredSize width="430" height="100"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="12645" class="javax.swing.JCheckBox" binding="firstAnswerCheckbox">
+        <constraints/>
+        <properties>
+          <horizontalAlignment value="2"/>
+          <horizontalTextPosition value="11"/>
+          <margin top="5" left="2" bottom="5" right="200"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="dfc2f" class="javax.swing.JCheckBox" binding="secondAnswerCheckbox">
+        <constraints/>
+        <properties>
+          <margin top="5" left="2" bottom="5" right="200"/>
+          <text value=""/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="checkboxButtonGroup">
+      <member id="f892f"/>
+    </group>
+  </buttonGroups>
+</form>

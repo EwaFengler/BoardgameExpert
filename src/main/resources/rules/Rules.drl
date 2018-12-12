@@ -1,0 +1,47 @@
+package com.boardgames
+
+import com.boardgames.BoardgameExpert;
+
+rule "init"
+    when
+        boardgameExpert: BoardgameExpert()
+    then
+        String questionString = "Are you a huge nerd?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "nerd"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "Yes")
+    then
+        String questionString = "Do you want to spend dozens of hours preparing to play?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "not nerd"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "No")
+    then
+        String questionString = "Do you thing everyone should just get along?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "nerd + dozen of hours"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "Yes")
+        Answer(question == "Do you want to spend dozens of hours preparing to play?", answer == "No")
+    then
+        String questionString = "Do you really like spending money?";
+        Answer firstAnswer = new Answer(questionString, "Yes");
+        Answer secondAnswer = new Answer(questionString, "No");
+        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
