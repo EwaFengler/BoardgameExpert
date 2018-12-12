@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.boardgames.gui.ResultPanel">
+  <grid id="27dc6" binding="resultPanel" layout-manager="FlowLayout" hgap="2" vgap="0" flow-align="0">
+    <constraints>
+      <xy x="20" y="20" width="615" height="400"/>
+    </constraints>
+    <properties>
+      <maximumSize width="-1" height="-1"/>
+      <minimumSize width="430" height="-1"/>
+      <preferredSize width="430" height="100"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="8b860" class="javax.swing.JLabel" binding="resultLabel">
+        <constraints/>
+        <properties>
+          <horizontalAlignment value="2"/>
+          <horizontalTextPosition value="11"/>
+          <minimumSize width="300" height="29"/>
+          <preferredSize width="300" height="29"/>
+          <text value="dummy"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

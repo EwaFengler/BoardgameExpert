@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class BoardgameExpertGUI {
+
   private JLabel topLabel;
   private JButton bottomButton;
   private JPanel mainPanel;
@@ -11,14 +12,23 @@ public class BoardgameExpertGUI {
   private JPanel buttonPanel;
   private JPanel labelPanel;
   private JPanel contentPanel;
+  private JFrame windowFrame;
 
   public void createAndShow() {
-    JFrame frame = new JFrame("Boardgame Expert");
-    frame.setContentPane(this.outerPanel);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.pack();
-    frame.setLocationRelativeTo(null); // Center in screen
-    frame.setVisible(true);
+    windowFrame = new JFrame("Boardgame Expert");
+    windowFrame.setContentPane(this.outerPanel);
+    windowFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    windowFrame.pack();
+    windowFrame.setLocationRelativeTo(null); // Center in screen
+    windowFrame.setVisible(true);
+  }
+
+  public void close() {
+    windowFrame.dispose();
+  }
+
+  public void setTextToTopLabel(String text) {
+    topLabel.setText(text);
   }
 
   public JPanel getContentPanel() {
@@ -27,10 +37,6 @@ public class BoardgameExpertGUI {
 
   public JButton getBottomButton() {
     return bottomButton;
-  }
-
-  public void setTextToTopLabel(String text) {
-    topLabel.setText(text);
   }
 
   {
