@@ -59,19 +59,6 @@ when
         boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
 end
 
-rule "nerd + not dozen of hours + not really like spending money"
-when
-        boardgameExpert: BoardgameExpert()
-        Answer(question == "Are you a huge nerd?", answer == "Yes")
-        Answer(question == "Do you want to spend dozens of hours preparing to play?", answer == "No")
-        Answer(question == "Do you really like spending money?", answer == "No")
-    then
-        String questionString = "Does the name Boomer give you wet dreams?";
-        Answer firstAnswer = new Answer(questionString, "Yes");
-        Answer secondAnswer = new Answer(questionString, "No");
-        boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
-end
-
 rule "nerd + not dozen of hours + not really like spending money + boomer"
 when
         boardgameExpert: BoardgameExpert()
@@ -146,7 +133,7 @@ rule "not nerd + everyone get along + not secretly wish"
     when
         boardgameExpert: BoardgameExpert()
         Answer(question == "Are you a huge nerd?", answer == "No")
-        Answer(question == "Do you thing everyone should just get along?", answer == "Yes)
+        Answer(question == "Do you thing everyone should just get along?", answer == "Yes")
         Answer(question == "Do you secretly wish you were a dick? (a P.I)", answer == "No")
     then
         String questionString = "Do you have a Monty Python Fetish?";
@@ -159,7 +146,7 @@ rule "not nerd + everyone get along + not secretly wish + monty python"
     when
         boardgameExpert: BoardgameExpert()
         Answer(question == "Are you a huge nerd?", answer == "No")
-        Answer(question == "Do you thing everyone should just get along?", answer == "Yes)
+        Answer(question == "Do you thing everyone should just get along?", answer == "Yes")
         Answer(question == "Do you secretly wish you were a dick? (a P.I)", answer == "No")
         Answer(question == "Do you have a Monty Python Fetish?", answer == "Yes")
     then
@@ -171,7 +158,7 @@ rule "not nerd + everyone get along + not secretly wish + not monty python"
     when
         boardgameExpert: BoardgameExpert()
         Answer(question == "Are you a huge nerd?", answer == "No")
-        Answer(question == "Do you thing everyone should just get along?", answer == "Yes)
+        Answer(question == "Do you thing everyone should just get along?", answer == "Yes")
         Answer(question == "Do you secretly wish you were a dick? (a P.I)", answer == "No")
         Answer(question == "Do you have a Monty Python Fetish?", answer == "No")
     then
@@ -185,7 +172,7 @@ rule "not nerd + everyone get along + not secretly wish + not monty python + zom
     when
         boardgameExpert: BoardgameExpert()
         Answer(question == "Are you a huge nerd?", answer == "No")
-        Answer(question == "Do you thing everyone should just get along?", answer == "Yes)
+        Answer(question == "Do you thing everyone should just get along?", answer == "Yes")
         Answer(question == "Do you secretly wish you were a dick? (a P.I)", answer == "No")
         Answer(question == "Do you have a Monty Python Fetish?", answer == "No")
         Answer(question == "Zombies?", answer == "Yes")
@@ -198,7 +185,7 @@ rule "not nerd + everyone get along + not secretly wish + not monty python + not
     when
         boardgameExpert: BoardgameExpert()
         Answer(question == "Are you a huge nerd?", answer == "No")
-        Answer(question == "Do you thing everyone should just get along?", answer == "Yes)
+        Answer(question == "Do you thing everyone should just get along?", answer == "Yes")
         Answer(question == "Do you secretly wish you were a dick? (a P.I)", answer == "No")
         Answer(question == "Do you have a Monty Python Fetish?", answer == "No")
         Answer(question == "Zombies?", answer == "No")
@@ -213,7 +200,7 @@ rule "not nerd + everyone get along + not secretly wish + not monty python + not
     when
         boardgameExpert: BoardgameExpert()
         Answer(question == "Are you a huge nerd?", answer == "No")
-        Answer(question == "Do you thing everyone should just get along?", answer == "Yes)
+        Answer(question == "Do you thing everyone should just get along?", answer == "Yes")
         Answer(question == "Do you secretly wish you were a dick? (a P.I)", answer == "No")
         Answer(question == "Do you have a Monty Python Fetish?", answer == "No")
         Answer(question == "Zombies?", answer == "No")
@@ -228,7 +215,7 @@ rule "not nerd + everyone get along + not secretly wish + not monty python + not
     when
         boardgameExpert: BoardgameExpert()
         Answer(question == "Are you a huge nerd?", answer == "No")
-        Answer(question == "Do you thing everyone should just get along?", answer == "Yes)
+        Answer(question == "Do you thing everyone should just get along?", answer == "Yes")
         Answer(question == "Do you secretly wish you were a dick? (a P.I)", answer == "No")
         Answer(question == "Do you have a Monty Python Fetish?", answer == "No")
         Answer(question == "Zombies?", answer == "No")
