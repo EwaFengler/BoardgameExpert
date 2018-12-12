@@ -1,9 +1,6 @@
 package com.boardgames;
 
-import com.boardgames.gui.BoardgameExpertGUI;
-import com.boardgames.gui.CheckboxPanel;
-import com.boardgames.gui.RadioButtonPanel;
-import com.boardgames.gui.WelcomePanel;
+import com.boardgames.gui.*;
 import org.kie.api.runtime.KieSession;
 
 import javax.swing.*;
@@ -15,6 +12,7 @@ public class BoardgameExpert {
   private JPanel contentPanel;
 
   private KieSession session;
+  private ResultPanel resultPanel = new ResultPanel();
 
   void init(KieSession session) {
     this.session = session;
@@ -25,6 +23,10 @@ public class BoardgameExpert {
     contentPanel = boardgameExpertGUI.getContentPanel();
 
     showWelcomeScreen();
+  }
+
+  public void addResult(String result) {
+    resultPanel.addToResultList(result);
   }
 
   public void showSingleChoiceQuestion(String question, Object firstAnswerObject, Object secondAnswerObject) {
@@ -47,6 +49,16 @@ public class BoardgameExpert {
 
     contentPanel.removeAll();
     contentPanel.add(checkboxPanel.$$$getRootComponent$$$());
+  }
+
+  public void showResultScreen() {
+    boardgameExpertGUI.setTextToTopLabel("You should choose: ");
+
+    contentPanel.removeAll();
+    contentPanel.add(resultPanel.$$$getRootComponent$$$());
+
+    boardgameExpertGUI.getBottomButton().setText("Close");
+    boardgameExpertGUI.getBottomButton().addActionListener(e -> boardgameExpertGUI.close());
   }
 
   private void showWelcomeScreen() {
