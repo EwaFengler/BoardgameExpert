@@ -57,7 +57,67 @@
     </dependencies>
 
     <build>
+	<defaultGoal>package</defaultGoal>
         <plugins>
+	          <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-shade-plugin</artifactId>
+			<version>3.2.1</version>
+			<executions>
+			  <execution>
+			    <goals>
+			      <goal>shade</goal>
+			    </goals>
+			    <configuration>
+			      <transformers>
+				<transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+				  <resource>META-INF/kie.conf</resource>
+				</transformer>
+			      </transformers>
+			    </configuration>
+			  </execution>
+			</executions>
+		      </plugin>
+            <plugin>
+		<artifactId>maven-assembly-plugin</artifactId>
+		<version>2.5.3</version>
+		<configuration>
+		  <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+	<archive>
+		  <manifest>
+		    <addClasspath>true</addClasspath>
+		    <classpathPrefix>lib/</classpathPrefix>
+		    <mainClass>com.boardgames.ChooseThePerfectBoardGame</mainClass>
+		  </manifest>
+		</archive>		
+	</configuration>
+		<executions>
+		  <execution>
+		    <id>create-archive</id>
+		    <phase>package</phase>
+		    <goals>
+		      <goal>single</goal>
+		    </goals>
+		  </execution>
+		</executions>
+	      </plugin>
+            <plugin>
+	      <!-- Build an executable JAR -->
+	      <groupId>org.apache.maven.plugins</groupId>
+	      <artifactId>maven-jar-plugin</artifactId>
+	      <version>3.1.0</version>
+	      <configuration>
+		<archive>
+		  <manifest>
+		    <addClasspath>true</addClasspath>
+		    <classpathPrefix>lib/</classpathPrefix>
+		    <mainClass>com.boardgames.ChooseThePerfectBoardGame</mainClass>
+		  </manifest>
+		</archive>
+	      </configuration>
+	    </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

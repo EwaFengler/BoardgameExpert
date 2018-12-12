@@ -34,7 +34,7 @@ rule "not nerd"
         boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
 end
 
-rule "nerd + dozen of hours"
+rule "nerd + not dozen of hours"
     when
         boardgameExpert: BoardgameExpert()
         Answer(question == "Are you a huge nerd?", answer == "Yes")
@@ -44,4 +44,13 @@ rule "nerd + dozen of hours"
         Answer firstAnswer = new Answer(questionString, "Yes");
         Answer secondAnswer = new Answer(questionString, "No");
         boardgameExpert.showSingleChoiceQuestion(questionString, firstAnswer, secondAnswer);
+end
+
+rule "nerd + dozen of hours"
+    when
+        boardgameExpert: BoardgameExpert()
+        Answer(question == "Are you a huge nerd?", answer == "Yes")
+        Answer(question == "Do you want to spend dozens of hours preparing to play?", answer == "Yes")
+    then
+
 end

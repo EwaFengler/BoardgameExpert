@@ -11,10 +11,10 @@ public class ChooseThePerfectBoardGame {
 
   public static void main(String[] args) {
 
-    KieServices ks = KieServices.Factory.get();
     BasicConfigurator.configure();
     Logger.getLogger(ChooseThePerfectBoardGame.class).setLevel(Level.OFF);
 
+    KieServices ks = KieServices.Factory.get();
     KieContainer kContainer = ks.getKieClasspathContainer();
     KieSession session = kContainer.newKieSession("ksession-rules");
 
